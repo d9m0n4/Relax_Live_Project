@@ -13,6 +13,7 @@ const showNumTel = () => {
             contactNum.style.marginTop = '0';
             contactNum.removeAttribute('style');
             contactArrow.style.transform = 'rotate(0)';
+            contactArrow.removeAttribute('style');
         }
     });
 };
