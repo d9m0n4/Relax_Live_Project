@@ -4,7 +4,6 @@ const showNumTel = () => {
 
     contactArrow.addEventListener('click', () => {
         if (!contactNum.style.opacity) {
-            console.log('asdfasd');
             contactNum.style.opacity = 1;
             contactNum.style.marginTop = '30px';
             contactArrow.style.transform = 'rotate(180deg)';
