@@ -1,5 +1,5 @@
 const srcollFromMenu = () => {
-    const scrolls = document.querySelectorAll('.menu-link');
+    const scrolls = document.querySelectorAll('a[href*="#"]');
 
     scrolls.forEach(anchor => {
         if (!anchor.matches('.full-list')) {
