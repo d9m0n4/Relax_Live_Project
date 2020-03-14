@@ -5,7 +5,7 @@ const accordeon = () => {
     faqBlock.addEventListener('click', event => {
         const target = event.target;
 
-        title.forEach((item, i) => {
+        title.forEach(item => {
             if (item === target) {
                 item.classList.toggle('msg-active');
             }
