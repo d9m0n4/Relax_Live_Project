@@ -11,11 +11,17 @@ const popup = () => {
             popupPrivacy.style.visibility = 'visible';
             document.body.style.overflow = 'hidden';
         }
-        if (target.matches('.close')) {
+        if (target.matches('.close') || target.matches('.popup')) {
             popupType.style.visibility = 'hidden';
             popupType.removeAttribute('style');
             document.body.style.overflow = '';
-            document.body.removeAttribute('style')
+            document.body.removeAttribute('style');
+
+            const menu = document.querySelectorAll('.popup-repair-types-nav__item');
+            menu.forEach(item => {
+                item.remove();
+            });
+
         }
     };
     document.body.addEventListener('click', e => {
