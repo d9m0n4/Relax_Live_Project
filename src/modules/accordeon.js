@@ -4,9 +4,10 @@ const accordeon = () => {
 
     faqBlock.addEventListener('click', event => {
         const target = event.target;
-
         title.forEach(item => {
-            if (item === target) {
+            if (item.classList.contains('msg-active')) {
+                item.classList.remove('msg-active');
+            } else if (item === target) {
                 item.classList.toggle('msg-active');
             }
         });
