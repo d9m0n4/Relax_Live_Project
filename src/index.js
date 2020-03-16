@@ -7,6 +7,7 @@ import formulaShow from './modules/formula';
 import accordeon from './modules/accordeon';
 import SliderCarousel from './modules/carouselSlider';
 import showTransparency from './modules/showTranspar';
+import callBack from './modules/callBack';
 
 showNumTel();
 mainMenu();
@@ -16,6 +17,7 @@ maskPhone();
 formulaShow();
 accordeon();
 showTransparency();
+callBack();
 
 const options = {
     main: '.formula-slider-wrap',
