@@ -5,7 +5,9 @@ const formulaShow = () => {
     const itemIcon = document.querySelectorAll('.formula-item__icon-inner');
     const formulaItem = document.querySelectorAll('.formula-item');
     const itemText = document.querySelectorAll('.formula-item-popup > .p');
-    const sliderFormulaWrapper = document.querySelector('.formula-slider-wrap');
+    const formula = document.getElementById('formula');
+    const slides = document.querySelectorAll('.formula-slider__slide');
+    const slider = document.querySelector('.formula-slider');
 
     wrapper.addEventListener('mouseover', e => {
         const target = e.target;
@@ -29,41 +31,60 @@ const formulaShow = () => {
             }
         });
     });
-    sliderFormulaWrapper.addEventListener('click', event => {
+
+    formula.addEventListener('click', (event) => {
         let target = event.target;
-        target = target.closest('.formula-slider__slide');
-        formulaItem.forEach((item, i) => {
-            item.classList.remove('active-item');
-            const itemText = item.querySelector('p');
-            formulaPopup[i].removeAttribute('style');
-            itemText.removeAttribute('style');
-            if (item === target) {
-                item.classList.add('active-item');
-                formulaPopup[i].style.visibility = 'initial';
-                formulaPopup[i].style.opacity = 1;
-
-                formulaPopup[i].style.top = '-220px';
-                formulaPopup[i].style.bottom = '150px';
-
-                itemText.style.transform = "rotate(180deg)";
-                formulaPopup[i].style.transform = "rotate(180deg)";
-
-                if (formulaPopup[i].clientHeight > item.getBoundingClientRect().top) {
-                    formulaPopup[i].removeAttribute('style');
-                    itemText.removeAttribute('style');
-                    formulaPopup[i].style.visibility = 'initial';
-                    formulaPopup[i].style.opacity = 1;
-                    formulaItem[i].style.zIndex = 1;
-                    formulaPopup[i].style.top = '80px';
-                    sliderFormulaWrapper.style.paddingBottom = '50px';
-                } else {
-                    sliderFormulaWrapper.removeAttribute('style');
-                    formulaItem[i].style.zIndex = 0;
+        if (target.closest('#formula-arrow_right')) {
+            const slide = document.querySelectorAll('.formula-slider__slide');
+            for (let i = 0; i < slide.length; i++) {
+                if (document.documentElement.clientWidth < 769) {
+                    slide[i].classList.remove('active-item');
+                    slide[i].classList.add('active-item');
+                } else if (document.documentElement.clientWidth < 1025) {
+                    slide[i].classList.remove('active-item');
+                    slide[i].classList.add('active-item');
                 }
-
             }
+        }
+        if (target.closest('#formula-arrow_left')) {
+            const slide = document.querySelectorAll('.formula-slider__slide');
+            for (let i = 0; i < slide.length; i++) {
+                if (document.documentElement.clientWidth < 769) {
+                    slide[i].classList.remove('active-item');
+                    slide[i].classList.add('active-item');
+                } else if (document.documentElement.clientWidth < 1025) {
+                    slide[i].classList.remove('active-item');
+                    slide[i].classList.add('active-item');
+                }
+            }
+        }
+    });
 
-        });
+    for (let i = 0; i < slides.length; i++) {
+        if (document.documentElement.clientWidth < 769) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[1].classList.remove('active-item');
+                slides[0].classList.add('active-item');
+            }
+        } else if (document.documentElement.clientWidth < 1025) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[0].classList.remove('active-item');
+                slides[1].classList.add('active-item');
+            }
+        }
+    }
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth < 769) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[1].classList.remove('active-item');
+                slides[0].classList.add('active-item');
+            }
+        } else if (document.documentElement.clientWidth < 1025) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[0].classList.remove('active-item');
+                slides[1].classList.add('active-item');
+            }
+        }
     });
 };
 export default formulaShow;
