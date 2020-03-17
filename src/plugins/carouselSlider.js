@@ -7,15 +7,7 @@ class SliderCarousel {
         position = 0,
         slidesToShow = 3,
         infinity = false,
-        responsive = [{
-            breakpoint: 1024,
-            slidesToShow: 1
-        },
-        {
-            breakpoint: 768,
-            slidesToShow: 1
-        },
-        ]
+        responsive,
     }) {
         if (!main || !wrap) {
             console.warn('slider: Необходимо передать 2 свйства: "main" и "wrap"!');
@@ -31,7 +23,19 @@ class SliderCarousel {
             infinity,
             slideWidth: Math.floor(100 / this.slidesToShow)
         };
-        this.responsive = responsive;
+        this.responsive = [{
+            breakpoint: 1024,
+            slidesToShow: 3
+        },
+        {
+            breakpoint: 768,
+            slidesToShow: 2
+        },
+        {
+            breakpoint: 576,
+            slidesToShow: 1
+        }
+        ];
     }
 
     init() {
@@ -79,7 +83,9 @@ class SliderCarousel {
                 align-items: center !important;
                 flex: 0 0 ${this.options.slideWidth}% !important;
                 margin: auto 0 !important;
-            }`;
+                max-width: inherit !important;
+            }
+            `;
         document.head.appendChild(style);
     }
     controlSlider() {

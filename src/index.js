@@ -8,6 +8,7 @@ import accordeon from './modules/accordeon';
 import showTransparency from './modules/showTranspar';
 import callBack from './modules/callBack';
 import blockProblems from './modules/blockProblems';
+import SliderCarousel from './plugins/carouselSlider';
 
 showNumTel();
 mainMenu();
@@ -21,6 +22,13 @@ callBack();
 blockProblems();
 
 
+const carouselPartners = new SliderCarousel({
+    main: '.slider-wrapper',
+    wrap: '.partners-slider',
+    prev: '#partners-arrow_left',
+    next: '#partners-arrow_right',
+    slidesToShow: 3
+});
 
-
+carouselPartners.init();
 
