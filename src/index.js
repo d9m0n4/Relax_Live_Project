@@ -9,6 +9,7 @@ import showTransparency from './modules/showTranspar';
 import callBack from './modules/callBack';
 import blockProblems from './modules/blockProblems';
 import SliderCarousel from './plugins/carouselSlider';
+import reviewsSlider from './modules/reviewsSlider';
 
 showNumTel();
 mainMenu();
@@ -20,6 +21,7 @@ accordeon();
 showTransparency();
 callBack();
 blockProblems();
+reviewsSlider();
 
 
 const carouselPartners = new SliderCarousel({
@@ -27,8 +29,8 @@ const carouselPartners = new SliderCarousel({
     wrap: '.partners-slider',
     prev: '#partners-arrow_left',
     next: '#partners-arrow_right',
-    slidesToShow: 3
 });
 
 carouselPartners.init();
+
 

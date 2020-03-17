@@ -6,8 +6,8 @@ class SliderCarousel {
         prev,
         position = 0,
         slidesToShow = 3,
-        infinity = false,
-        responsive,
+        infinity = true,
+        responsive = [],
     }) {
         if (!main || !wrap) {
             console.warn('slider: Необходимо передать 2 свйства: "main" и "wrap"!');
