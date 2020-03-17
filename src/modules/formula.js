@@ -17,10 +17,10 @@ const formulaShow = () => {
                 formulaPopup[i].style.opacity = 1;
                 formulaItem[i].style.zIndex = 1;
                 itemIcon[i].style.opacity = 1;
-            } else if (!target.closest('.formula-item__icon')) {
+            } else  {
                 formulaPopup[i].removeAttribute('style');
                 itemIcon[i].removeAttribute('style');
-                formulaItem[i].style.zIndex = 0;
+                formulaItem[i].removeAttribute('style');
                 itemText[i].removeAttribute('style');
             }
             if (formulaPopup[i].clientHeight > item.getBoundingClientRect().top) {

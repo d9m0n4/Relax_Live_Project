@@ -7,7 +7,7 @@ const callBack = () => {
         if (target.closest('.button_wide')) {
             consultPopup.style.visibility = 'visible';
         }
-        if (target.closest('.close') || target.closest('.popup-consultation')) {
+        if (target.closest('.close') || target.matches('.popup-consultation')) {
             consultPopup.removeAttribute('style');
         }
     });

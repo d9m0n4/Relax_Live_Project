@@ -3,6 +3,8 @@ const blockProblems = () => {
     const problemsIcon = document.querySelectorAll('.problems-item__icon');
     const porlemsPopup = document.querySelectorAll('.problems-item-popup');
     const problemsItemIcon = document.querySelectorAll('.problems-item__icon-inner');
+    const problemDecr = document.querySelectorAll('.problem-description');
+
 
     problems.addEventListener('mouseover', e => {
         const target = e.target;
@@ -12,13 +14,22 @@ const blockProblems = () => {
                     if (porlemsPopup[i].clientHeight >
                       (document.documentElement.clientHeight - item.getBoundingClientRect().bottom)) {
                         porlemsPopup[i].style.transform = 'rotate(180deg)';
+                        problemDecr[i].style.transform = 'rotate(180deg)';
                         porlemsPopup[i].style.top = '-350px';
+                    } else if (porlemsPopup[i].clientHeight <
+                        (document.documentElement.clientHeight - item.getBoundingClientRect().bottom)) {
+                        porlemsPopup[i].removeAttribute('style');
+                        problemDecr[i].removeAttribute('style');
                     }
 
                 } else {
                     if (porlemsPopup[i].clientHeight > item.getBoundingClientRect().top) {
                         porlemsPopup[i].style.transform = 'rotate(180deg)';
+                        problemDecr[i].style.transform = 'rotate(180deg)';
                         porlemsPopup[i].style.top = '100px';
+                    } else if (porlemsPopup[i].clientHeight < item.getBoundingClientRect().top) {
+                        porlemsPopup[i].removeAttribute('style');
+                        problemDecr[i].removeAttribute('style');
                     }
                 }
                 porlemsPopup[i].style.visibility = 'visible';
