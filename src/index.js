@@ -10,6 +10,7 @@ import callBack from './modules/callBack';
 import blockProblems from './modules/blockProblems';
 import SliderCarousel from './plugins/carouselSlider';
 import reviewsSlider from './modules/reviewsSlider';
+import schemeTabs from './modules/schemeTabs';
 
 showNumTel();
 mainMenu();
@@ -22,6 +23,7 @@ showTransparency();
 callBack();
 blockProblems();
 reviewsSlider();
+schemeTabs();
 
 
 const carouselPartners = new SliderCarousel({
@@ -32,5 +34,6 @@ const carouselPartners = new SliderCarousel({
 });
 
 carouselPartners.init();
+
 
 
