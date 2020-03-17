@@ -32,57 +32,66 @@ const formulaShow = () => {
         });
     });
 
-    formula.addEventListener('click', (event) => {
-        let target = event.target;
+    for (let i = 0; i < slides.length; i++) {
+        if (document.documentElement.clientWidth < 769) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.flex = '0 0 100%';
+                slides[0].classList.add('active-item');
+            }
+        } else if (document.documentElement.clientWidth < 1025) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.flex = '0 0 35%';
+                slides[1].classList.add('active-item');
+            }
+        }
+    }
+
+    slider.style.display = 'flex';
+    slider.style.margin = '0 0 70px 0';
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth < 769) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.flex = '0 0 100%';
+                slides[0].classList.add('active-item');
+            }
+        } else if (document.documentElement.clientWidth < 1025) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active-item');
+                slides[i].style.flex = '0 0 35%';
+                slides[1].classList.add('active-item');
+            }
+        }
+    });
+    formula.addEventListener('click', event => {
+        const target = event.target;
         if (target.closest('#formula-arrow_right')) {
             const slide = document.querySelectorAll('.formula-slider__slide');
+            slider.insertBefore(slide[0], slide[slide.length]);
             for (let i = 0; i < slide.length; i++) {
                 if (document.documentElement.clientWidth < 769) {
+                    slides[i].classList.remove('active-item');
                     slide[i].classList.remove('active-item');
-                    slide[i].classList.add('active-item');
+                    slide[1].classList.add('active-item');
                 } else if (document.documentElement.clientWidth < 1025) {
+                    slides[i].classList.remove('active-item');
                     slide[i].classList.remove('active-item');
-                    slide[i].classList.add('active-item');
+                    slide[2].classList.add('active-item');
                 }
             }
         }
         if (target.closest('#formula-arrow_left')) {
             const slide = document.querySelectorAll('.formula-slider__slide');
+            slider.insertBefore(slide[slide.length - 1], slide[0]);
             for (let i = 0; i < slide.length; i++) {
                 if (document.documentElement.clientWidth < 769) {
+                    slides[i].classList.remove('active-item');
                     slide[i].classList.remove('active-item');
-                    slide[i].classList.add('active-item');
+                    slide[5].classList.add('active-item');
                 } else if (document.documentElement.clientWidth < 1025) {
+                    slides[i].classList.remove('active-item');
                     slide[i].classList.remove('active-item');
-                    slide[i].classList.add('active-item');
+                    slide[0].classList.add('active-item');
                 }
-            }
-        }
-    });
-
-    for (let i = 0; i < slides.length; i++) {
-        if (document.documentElement.clientWidth < 769) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[1].classList.remove('active-item');
-                slides[0].classList.add('active-item');
-            }
-        } else if (document.documentElement.clientWidth < 1025) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[0].classList.remove('active-item');
-                slides[1].classList.add('active-item');
-            }
-        }
-    }
-    window.addEventListener('resize', () => {
-        if (document.documentElement.clientWidth < 769) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[1].classList.remove('active-item');
-                slides[0].classList.add('active-item');
-            }
-        } else if (document.documentElement.clientWidth < 1025) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[0].classList.remove('active-item');
-                slides[1].classList.add('active-item');
             }
         }
     });

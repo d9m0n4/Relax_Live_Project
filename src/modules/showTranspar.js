@@ -55,8 +55,10 @@ const showTransparency = () => {
                     docSlide[i].style.display = 'none';
                 }
             }
-
-            if (target.closest('.close')) {
+            if (document.documentElement.offsetWidth < 1091) {
+                hideDocs(slideIndex);
+            }
+            if (target.closest('.close') || target.matches('.popup-transparency')) {
                 popupTransparency.removeAttribute('style');
             }
             sliderCounterCurrent.textContent = slideIndex + 1;
@@ -69,12 +71,12 @@ const showTransparency = () => {
         }
         docItem[a].style.display = '';
     };
-    if (document.documentElement.offsetWidth < 1025) {
+    if (document.documentElement.offsetWidth < 1091) {
         slideIndex = 0;
         hideDocs(slideIndex);
     }
     window.addEventListener('resize', () => {
-        if (document.documentElement.offsetWidth > 1025) {
+        if (document.documentElement.offsetWidth > 1091) {
             docItem.forEach(item => {
                 item.style.display = '';
             });
