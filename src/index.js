@@ -13,6 +13,7 @@ import reviewsSlider from './modules/reviewsSlider';
 import schemeTabs from './modules/schemeTabs';
 import typesOfRepair from './modules/typesOfRepair';
 import translateTabs from './modules/translateTabs';
+import sliderPortfolio from './modules/sliderPortfolio';
 
 showNumTel();
 mainMenu();
@@ -27,6 +28,7 @@ blockProblems();
 reviewsSlider();
 schemeTabs(translateTabs);
 typesOfRepair(translateTabs);
+sliderPortfolio();
 
 
 const carouselPartners = new SliderCarousel({
