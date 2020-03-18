@@ -1,33 +1,16 @@
-const schemeTabs = () => {
+const schemeTabs = translateTabs => {
     const scheme = document.getElementById('scheme');
     const schemeList = document.getElementById('scheme-list');
     const schemeBtns = document.querySelectorAll('.scheme-nav__item');
     const descrBlock = document.querySelectorAll('.scheme-description-block');
     const schemeSlides = document.querySelectorAll('.scheme-slider__slide');
 
-    let translateNum = 0;
+    translateTabs(scheme, schemeList, 70, '#nav-arrow-scheme_left', '#nav-arrow-scheme_right', 20);
 
     scheme.addEventListener('click', e => {
         const target = e.target;
-        console.log(document.documentElement.offsetWidth);
-        console.log(schemeList.getBoundingClientRect().right);
-        console.log(document.documentElement.offsetWidth - schemeList.getBoundingClientRect().right);
-
-        if (document.documentElement.offsetWidth < schemeList.getBoundingClientRect().right) {
-            if (target.closest('#nav-arrow-scheme_right')) {
-                translateNum -= 10;
-                schemeList.style.transform = `translateX(${translateNum}%)`;
-            }
-        }
-        if (target.closest('#nav-arrow-scheme_left')) {
-            translateNum += 10;
-            if (translateNum > 0) {
-                translateNum = 0;
-            }
-            schemeList.style.transform = `translateX(${translateNum}%)`;
-        }
-
         schemeBtns.forEach((item, i) => {
+
             schemeBtns[i].classList.remove('active');
             if (target.closest('.scheme-nav__item') === item) {
                 schemeBtns[i].classList.add('active');
@@ -51,11 +34,8 @@ const schemeTabs = () => {
                 }
             }
         });
-
-
-
-
     });
+
 };
 
 export default schemeTabs;

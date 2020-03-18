@@ -11,6 +11,8 @@ import blockProblems from './modules/blockProblems';
 import SliderCarousel from './plugins/carouselSlider';
 import reviewsSlider from './modules/reviewsSlider';
 import schemeTabs from './modules/schemeTabs';
+import typesOfRepair from './modules/typesOfRepair';
+import translateTabs from './modules/translateTabs';
 
 showNumTel();
 mainMenu();
@@ -23,7 +25,8 @@ showTransparency();
 callBack();
 blockProblems();
 reviewsSlider();
-schemeTabs();
+schemeTabs(translateTabs);
+typesOfRepair(translateTabs);
 
 
 const carouselPartners = new SliderCarousel({
