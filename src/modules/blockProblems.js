@@ -11,12 +11,12 @@ const blockProblems = () => {
         problemsIcon.forEach((item, i) => {
             if (target.closest('.problems-item__icon') === item) {
                 if (i === 0) {
-                    if (porlemsPopup[i].clientHeight >
+                    if ((porlemsPopup[i].clientHeight + (porlemsPopup[i].clientHeight / 2)) >
                       (document.documentElement.clientHeight - item.getBoundingClientRect().bottom)) {
                         porlemsPopup[i].style.transform = 'rotate(180deg)';
                         problemDecr[i].style.transform = 'rotate(180deg)';
                         porlemsPopup[i].style.top = '-350px';
-                    } else if (porlemsPopup[i].clientHeight <
+                    } else if ((porlemsPopup[i].clientHeight + (porlemsPopup[i].clientHeight / 2)) <
                         (document.documentElement.clientHeight - item.getBoundingClientRect().bottom)) {
                         porlemsPopup[i].removeAttribute('style');
                         problemDecr[i].removeAttribute('style');
