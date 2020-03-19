@@ -30,9 +30,12 @@ const sliderPortfolio = () => {
     const showArrows = () => {
         if (document.documentElement.clientWidth > 425) {
             arrowRight.style.display = 'flex';
+            arrowRightMobile.style.display = 'none';
+            arrowLeftMobile.style.display = 'none';
         } else if (document.documentElement.clientWidth < 768) {
             arrowRight.style.display = 'none';
             arrowLeft.style.display = 'none';
+            arrowRightMobile.style.display = 'block';
         }
     }
     window.addEventListener('resize', showArrows);
