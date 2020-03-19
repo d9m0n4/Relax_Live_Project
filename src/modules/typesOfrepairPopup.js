@@ -73,18 +73,18 @@ const repairPopup = () => {
 
     const menu = document.querySelector('.nav-list-popup-repair');
     const itemNav = menu.querySelectorAll('.popup-repair-types-nav__item'),
-      tableItem = document.querySelectorAll('.popup-repair-types-content-table__list'),
-      btnclass = menu.querySelectorAll('.button_o');
-    
+        tableItem = document.querySelectorAll('.popup-repair-types-content-table__list'),
+        btnclass = menu.querySelectorAll('.button_o');
+
     const clearRepairs = () => {
-      for (let i = 0; i < itemNav.length; i++) {
-        itemNav[i].remove();
-        tableItem[i].remove();
-        btnclass[i].remove();
-      }
+        for (let i = 0; i < itemNav.length; i++) {
+            itemNav[i].remove();
+            tableItem[i].remove();
+            btnclass[i].remove();
+        }
     };
     clearRepairs();
-    
+
 
 };
 

@@ -27,7 +27,15 @@ const sliderPortfolio = () => {
             arrowLeft.style.display = 'none';
         }
     };
-    window.addEventListener('resize', hideArrow);
+    const showArrows = () => {
+        if (document.documentElement.clientWidth > 425) {
+            arrowRight.style.display = 'flex';
+        } else if (document.documentElement.clientWidth < 768) {
+            arrowRight.style.display = 'none';
+            arrowLeft.style.display = 'none';
+        }
+    }
+    window.addEventListener('resize', showArrows);
 
     const slidesArrow = (index, elem, rightArrow, leftArrow) => {
         if (index === elem.length - 1) {
@@ -122,6 +130,7 @@ const sliderPortfolio = () => {
         }
     };
     arrowLeftMobile.style.display = 'none';
+    arrowRight.style.display = 'flex';
     mobileTotal.textContent = sliderSlidesMobile.length;
 
     document.body.addEventListener('click', e => {
