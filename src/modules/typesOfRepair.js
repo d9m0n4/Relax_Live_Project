@@ -3,7 +3,7 @@ const typesOfRepair = translateTabs => {
     const repairTypes = document.getElementById('repair-types');
     const repairNavItems = document.querySelectorAll('.repair-types-nav__item');
     const popreptypes = document.querySelector('.popup-dialog-repair-types');
-    const navpopup = document.querySelector('.nav-list-popup-repair')
+    const navpopup = document.querySelector('.nav-list-popup-repair');
 
     const sliders = item => {
         const repairSlide = item.querySelectorAll('.repair-types-slider__slide'),
@@ -58,11 +58,14 @@ const typesOfRepair = translateTabs => {
         });
     });
     window.addEventListener('resize', () => {
-        if (document.documentElement.clientWidth > 1025) {
+        if (document.documentElement.clientWidth > 1024) {
             repairNav.style.transform = '';
+            navpopup.removeAttribute('style');
+        } else if (document.documentElement.clientWidth < 1024) {
+            navpopup.style.minWidth = '2000px';
         }
     });
     translateTabs(repairTypes, repairNav, 50, '#nav-arrow-repair-left_base', '#nav-arrow-repair-right_base', 20);
-    translateTabs(popreptypes, navpopup, 50, '#nav-arrow-popup-repair_left', '#nav-arrow-popup-repair_right', 20);
+    translateTabs(popreptypes, navpopup, 50, '#nav-arrow-popup-repair_left', '#nav-arrow-popup-repair_right', 10);
 };
 export default typesOfRepair;
