@@ -2,6 +2,8 @@ const typesOfRepair = translateTabs => {
     const repairNav = document.querySelector('.nav-list');
     const repairTypes = document.getElementById('repair-types');
     const repairNavItems = document.querySelectorAll('.repair-types-nav__item');
+    const popreptypes = document.querySelector('.popup-dialog-repair-types');
+    const navpopup = document.querySelector('.nav-list-popup-repair')
 
     const sliders = item => {
         const repairSlide = item.querySelectorAll('.repair-types-slider__slide'),
@@ -61,5 +63,6 @@ const typesOfRepair = translateTabs => {
         }
     });
     translateTabs(repairTypes, repairNav, 50, '#nav-arrow-repair-left_base', '#nav-arrow-repair-right_base', 20);
+    translateTabs(popreptypes, navpopup, 50, '#nav-arrow-popup-repair_left', '#nav-arrow-popup-repair_right', 20);
 };
 export default typesOfRepair;
