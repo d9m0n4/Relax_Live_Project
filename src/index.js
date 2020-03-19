@@ -7,6 +7,7 @@ import 'formdata-polyfill';
 import 'fetch-polyfill';
 import 'es6-promise';
 import 'element-remove';
+import 'element-matches-polyfill';
 
 
 import showNumTel from './modules/showNumTel';
