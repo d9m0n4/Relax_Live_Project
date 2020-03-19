@@ -1,3 +1,12 @@
+import "@babel/polyfill";
+import 'nodelist-foreach-polyfill';
+import elementClosest from 'element-closest';
+elementClosest(window);
+
+import 'formdata-polyfill';
+import 'fetch-polyfill';
+import 'es6-promise';
+
 import showNumTel from './modules/showNumTel';
 import mainMenu from './modules/mainMenu';
 import srcollFromMenu from './modules/scrollTo';
@@ -16,6 +25,7 @@ import translateTabs from './modules/translateTabs';
 import sliderPortfolio from './modules/sliderPortfolio';
 import showDesign from './modules/designBlock';
 import sendFrom from './modules/sendForm';
+import repairPopup from './modules/typesOfrepairPopup';
 
 showNumTel();
 mainMenu();
@@ -33,6 +43,7 @@ typesOfRepair(translateTabs);
 sliderPortfolio();
 showDesign(translateTabs);
 sendFrom();
+repairPopup();
 
 
 const carouselPartners = new SliderCarousel({

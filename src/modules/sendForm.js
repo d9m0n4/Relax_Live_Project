@@ -4,7 +4,6 @@ const sendFrom = () => {
         popupConsult = document.querySelector('.popup-consultation');
     document.body.addEventListener('click', e => {
         const target = e.target;
-        console.log(target);
         if (target.closest('.close-thank') || target.matches('.popup-thank')) {
             popupThank.removeAttribute('style');
         }
@@ -36,7 +35,7 @@ const sendFrom = () => {
                 checkbox = target.querySelector('input[type="checkbox"]'),
                 formData = new FormData(target),
                 body = {};
-            checkbox.removeAttribute('required')
+            checkbox.removeAttribute('required');
             textInputs.forEach(item => {
                 item.removeAttribute('style');
             });
