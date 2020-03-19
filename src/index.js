@@ -6,7 +6,7 @@ elementClosest(window);
 import 'formdata-polyfill';
 import 'fetch-polyfill';
 import 'es6-promise';
-import ('element-remove');
+import 'element-remove';
 
 
 import showNumTel from './modules/showNumTel';
