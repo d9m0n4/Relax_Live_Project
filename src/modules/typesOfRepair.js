@@ -19,10 +19,10 @@ const typesOfRepair = translateTabs => {
                 slideIndex--;
             }
             if (slideIndex < 0) {
-                slideIndex = 0;
+                slideIndex = (repairSlide.length - 1);
             }
             if (slideIndex > (repairSlide.length - 1)) {
-                slideIndex = (repairSlide.length - 1);
+                slideIndex = 0;
             }
             currentCount.textContent = slideIndex + 1;
             repairSlide.forEach((item, index) => {
