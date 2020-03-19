@@ -93,7 +93,7 @@ const sliderPortfolio = () => {
     const slides = (slide, target) => {
         slide.forEach((item, i) => {
             if (target === item) {
-                portfolioPopup.style.visibility = 'initial';
+                portfolioPopup.style.visibility = 'visible';
                 for (let a = 0; a < popupText.length; a++) {
                     popupText[a].style.display = 'none';
                     if (a === i) {

@@ -22,7 +22,7 @@ const popup = () => {
                 }
             };
             clearRepairs();
-            popupRepair.style.visibility = 'initial';
+            popupRepair.style.visibility = 'visible';
             menu.removeAttribute('style');
             document.body.style.overflow = 'hidden';
         }
@@ -40,7 +40,7 @@ const popup = () => {
                 }
             };
             clearRepairs();
-            popupPrivacy.style.visibility = 'initial';
+            popupPrivacy.style.visibility = 'visible';
             document.body.style.overflow = 'hidden';
             for (let i = 0; i < itemNav.length; i++) {
                 itemNav[i].remove();

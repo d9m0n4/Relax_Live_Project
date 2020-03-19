@@ -13,7 +13,7 @@ const formulaShow = () => {
         const target = e.target;
         formulaItemIcon.forEach((item, i) => {
             if (target.closest('.formula-item__icon') === item) {
-                formulaPopup[i].style.visibility = 'initial';
+                formulaPopup[i].style.visibility = 'visible';
                 formulaPopup[i].style.opacity = 1;
                 formulaItem[i].style.zIndex = 1;
                 itemIcon[i].style.opacity = 1;
