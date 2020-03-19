@@ -15,6 +15,7 @@ import typesOfRepair from './modules/typesOfRepair';
 import translateTabs from './modules/translateTabs';
 import sliderPortfolio from './modules/sliderPortfolio';
 import showDesign from './modules/designBlock';
+import sendFrom from './modules/sendForm';
 
 showNumTel();
 mainMenu();
@@ -31,6 +32,7 @@ schemeTabs(translateTabs);
 typesOfRepair(translateTabs);
 sliderPortfolio();
 showDesign(translateTabs);
+sendFrom();
 
 
 const carouselPartners = new SliderCarousel({
