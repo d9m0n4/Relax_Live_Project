@@ -21,8 +21,26 @@ const sliderPortfolio = () => {
     const mobileTotal = portfolio.querySelector('.slider-counter-content__total');
     let count = 0;
 
+    const hideArrow = () => {
+        if (document.documentElement.clientWidth < 768) {
+            arrowRight.style.display = 'none';
+            arrowLeft.style.display = 'none';
+        }
+    };
+    window.addEventListener('resize', hideArrow);
 
-
+    const slidesArrow = (index, elem, rightArrow, leftArrow) => {
+        if (index === elem.length - 1) {
+            rightArrow.style.display = 'none';
+        } else {
+            rightArrow.style.display = 'block';
+        }
+        if (index === 0 || elem[index] === 1) {
+            leftArrow.style.display = 'none';
+        } else {
+            leftArrow.style.display = 'block';
+        }
+    };
     document.body.addEventListener('click', e => {
         const target = e.target;
         sliderSlide.forEach(item => {
@@ -73,16 +91,7 @@ const sliderPortfolio = () => {
                 }
                 total.textContent = portfolioPopupSlide.length;
                 current.textContent = i + 1;
-                if (i === portfolioPopupSlide.length - 1) {
-                    popupArrowRight.style.display = 'none';
-                } else {
-                    popupArrowRight.style.display = 'block';
-                }
-                if (i === 0) {
-                    popupArrowLeft.style.display = 'none';
-                } else {
-                    popupArrowLeft.style.display = 'block';
-                }
+                slidesArrow(i, portfolioPopupSlide, popupArrowRight, popupArrowLeft);
                 portfolioPopupSlide.forEach((img, k) => {
                     img.style.display = 'none';
                     if (i === k) {
@@ -94,95 +103,81 @@ const sliderPortfolio = () => {
         });
     };
 
-    if (document.documentElement.clientWidth < 768) {
-        arrowRight.style.display = 'none';
-        arrowLeft.style.display = 'none';
-    }
-
     arrowLeftMobile.style.zIndex = 30;
     arrowRightMobile.style.zIndex = 30;
     let mobileIndex = 0;
     let step = 0;
 
     const text = i => {
-        popupText[i].style.display = 'flex';
-        popupText[i].style.justifyContent = 'space-around';
-        popupText[i].style.flexDirection = 'row';
-        popupText[i].style.flexWrap = 'wrap';
+        if (document.documentElement.offsetWidth < 1025) {
+            popupText[i].style.display = 'flex';
+            popupText[i].style.justifyContent = 'space-around';
+            popupText[i].style.flexDirection = 'row';
+            popupText[i].style.flexWrap = 'wrap';
+        } else {
+            popupText[i].style.display = 'flex';
+            popupText[i].style.justifyContent = '';
+            popupText[i].style.flexDirection = '';
+            popupText[i].style.flexWrap = '';
+        }
     };
-
+    arrowLeftMobile.style.display = 'none';
     mobileTotal.textContent = sliderSlidesMobile.length;
+
     document.body.addEventListener('click', e => {
         const target = e.target;
-        console.log(target);
+        hideArrow();
         slides(sliderSlides, target);
         if (target.matches('.portfolio-slider__slide-frame')) {
             slides(sliderSlidesMobile, target);
         }
-
         if (target.closest('#popup_portfolio_right')) {
             portfolioPopupSlide[step].style.display = 'none';
             popupText[step].style.display = 'none';
             step++;
             portfolioPopupSlide[step].style.display = 'flex';
-            text(step);
             current.textContent = step + 1;
-
-            if (step === portfolioPopupSlide.length - 1) {
-                popupArrowRight.style.display = 'none';
-            } else {
-                popupArrowRight.style.display = 'block';
-            }
-            if (step === 0) {
-                popupArrowLeft.style.display = 'none';
-            } else {
-                popupArrowLeft.style.display = 'block';
-            }
+            text(step);
+            hideArrow();
+            slidesArrow(step, portfolioPopupSlide, popupArrowRight, popupArrowLeft);
         }
         if (target.closest('#popup_portfolio_left')) {
             portfolioPopupSlide[step].style.display = 'none';
             popupText[step].style.display = 'none';
             step--;
             portfolioPopupSlide[step].style.display = 'flex';
-            text(step);
             current.textContent = step + 1;
-
-            if (step === portfolioPopupSlide.length - 1) {
-                popupArrowRight.style.display = 'none';
-            } else {
-                popupArrowRight.style.display = 'block';
-            }
-            if (step === 0) {
-                popupArrowLeft.style.display = 'none';
-            } else {
-                popupArrowLeft.style.display = 'block';
-            }
+            text(step);
+            hideArrow();
+            slidesArrow(step, portfolioPopupSlide, popupArrowRight, popupArrowLeft);
         }
 
         if (target.closest('.close') || target.matches('.popup-portfolio')) {
             portfolioPopup.removeAttribute('style');
+            hideArrow();
         }
         if (target.closest('#portfolio-arrow-mobile_left')) {
+            arrowRight.style.display = 'none';
+            arrowLeft.style.display = 'none';
             mobileIndex--;
-            if (mobileIndex < 0) {
-                mobileIndex = sliderSlidesMobile.length - 1;
-            }
+            slidesArrow(mobileIndex, sliderSlidesMobile, arrowRightMobile, arrowLeftMobile);
             for (let i = 0; i < sliderSlidesMobile.length; i++) {
                 sliderSlidesMobile[i].style.transform = `translateY(-${sliderSlidesMobile[0].clientHeight * mobileIndex}px)`;
+                sliderSlidesMobile[i].style.transition = 'transform 0.5s ease 0s';
             }
         }
         if (target.closest('#portfolio-arrow-mobile_right')) {
+            arrowRight.style.display = 'none';
+            arrowLeft.style.display = 'none';
             mobileIndex++;
-            if (mobileIndex > sliderSlidesMobile.length - 1) {
-                mobileIndex = 0;
-            }
+            slidesArrow(mobileIndex, sliderSlidesMobile, arrowRightMobile, arrowLeftMobile);
             for (let i = 0; i < sliderSlidesMobile.length; i++) {
                 sliderSlidesMobile[i].style.transform = `translateY(-${sliderSlidesMobile[0].clientHeight * mobileIndex}px)`;
+                sliderSlidesMobile[i].style.transition = 'transform 0.5s ease 0s';
             }
         }
         mobileCounter.textContent = mobileIndex + 1;
     });
-
 };
 
 export default sliderPortfolio;
